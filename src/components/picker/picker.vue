@@ -278,8 +278,10 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @require "../../common/stylus/mixin.styl"
   @require "../../common/stylus/variable.styl"
+  @require "./../../theme.custom.styl"
 
-  $picker-lr-padding = 16px
+  $picker-action-lr-padding = 16px
+  $picker-item-lr-padding = 13px
 
   .cube-picker-fade-enter, .cube-picker-fade-leave-active
     opacity: 0
@@ -301,14 +303,14 @@
 
   .cube-picker-choose
     position: relative
-    height: 60px
+    height: 58px
+    border-bottom 1px solid color-border-base
 
   .cube-picker-confirm, .cube-picker-cancel
-    font-size: $fontsize-medium
-    line-height: 60px
-    padding: 0 $picker-lr-padding
+    font-size: $fontsize-large
+    line-height: 58px
+    padding: 0 $picker-action-lr-padding
     box-sizing: content-box
-    font-size: $fontsize-medium
 
   .cube-picker-confirm
     position: absolute
@@ -334,9 +336,12 @@
 
   .cube-picker-title
     font-size: $fontsize-large-x
-    line-height: 25px
+    line-height: 1
     font-weight: normal
     color: $picker-title-color
+    overflow: hidden
+    text-overflow ellipsis
+    white-space: nowrap
 
   .cube-picker-subtitle
     margin-top: 2px
@@ -358,13 +363,15 @@
     > .border-bottom-1px
       top: 0
       background: linear-gradient(to top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.8))
+      border-bottom 1px solid color-border-base
     > .border-top-1px
       bottom: 0
       background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.8))
+      border-top 1px solid color-border-base
 
   .cube-picker-wheel-wrapper
     display: flex
-    padding: 0 $picker-lr-padding
+    padding: 0
     > div
       flex-fix()
       height: 173px
@@ -381,8 +388,11 @@
     list-style: none
     height: 36px
     overflow: hidden
+    text-overflow ellipsis
     white-space: nowrap
     color: $picker-item-color
+    padding 0 $picker-item-lr-padding
+    font-size $fontsize-large-x
 
   .cube-picker-footer
     height: 20px

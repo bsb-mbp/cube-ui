@@ -82,6 +82,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @require "../../common/stylus/variable.styl"
+  @require "./../../theme.custom.styl"
   .cube-popup
     position: fixed
     left: 0
