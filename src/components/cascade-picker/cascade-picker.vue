@@ -12,6 +12,7 @@
     :confirm-txt="_confirmTxt"
     :swipe-time="swipeTime"
     :mask-closable="maskClosable"
+    :lock-when-cascading="true"
     @select="_pickerSelect"
     @cancel="_pickerCancel"
     @change="_pickerChange">
@@ -92,7 +93,7 @@
               ? (this.pickerSelectedIndex[i] < data.length ? this.pickerSelectedIndex[i] || 0 : 0)
               : this.$refs.picker.refillColumn(i, columnData)
           }
-          data = data.length ? data[this.pickerSelectedIndex[i]].children : null
+          data = data.length && data[this.pickerSelectedIndex[i]] ? data[this.pickerSelectedIndex[i]].children : null
 
           i++
         }

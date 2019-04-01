@@ -234,6 +234,22 @@
             swipeTime: this.swipeTime,
             observeDOM: false
           })
+          wheel.on('scrollStart', () => {
+            if (this.lockWhenCascading) {
+              this.wheels.forEach((wheel, index) => {
+                if (index !== i) {
+                  wheel.disable();
+                }
+              });
+            }
+          })
+          wheel.on('scrollEnd', () => {
+            if (this.lockWhenCascading) {
+              this.wheels.forEach(wheel => {
+                wheel.enable();
+              });
+            }
+          })
           wheel.on('scrollEnd', () => {
             this.$emit(EVENT_CHANGE, i, wheel.getSelectedIndex())
           })

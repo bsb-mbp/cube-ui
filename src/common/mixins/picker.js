@@ -21,6 +21,10 @@ export default {
     maskClosable: {
       type: Boolean,
       default: true
+    },
+    lockWhenCascading: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
