@@ -194,7 +194,7 @@
           this.$set(this.finalData, index, data)
           let selectedIndex = wheel.getSelectedIndex()
           if (oldData.length) {
-            let oldValue = oldData[selectedIndex][this.valueKey]
+            let oldValue = oldData[selectedIndex] ? oldData[selectedIndex][this.valueKey] : -1;
             for (let i = 0; i < data.length; i++) {
               if (data[i][this.valueKey] === oldValue) {
                 dist = i
